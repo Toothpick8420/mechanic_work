@@ -1,0 +1,28 @@
+<html>
+    <link rel="stylesheet" href='/static/style.css'/>
+<body>
+
+    <h1 class="title">Welcome to Mechanic Shop Database</h1>
+    <div class="login">
+        <h2>Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="text"
+                   name="userID"
+                   placeholder="UserID">
+
+            <input type="password"
+                   name="password"
+                   placeholder="Password">
+            
+            <button class="button" type="Submit">Submit</button>
+        </form>
+    <a href="/create_account">Or Create An Account</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <h3 class="error">{{ messages }}</h3> 
+        {% endif %}
+    {% endwith%}
+</body>
+
+</html>

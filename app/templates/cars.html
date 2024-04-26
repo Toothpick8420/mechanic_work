@@ -1,0 +1,38 @@
+{% extends "homepage.html" %}
+
+{% block body %}
+<h2>Vehicles</h2>
+<a href="/add_car">Add Vehicle</a><br><br>
+Search by Customer:
+<form method="POST" action="{{ url_for('cars') }}">
+    <input type="text"
+           name="fname"
+           placeholder="First Name">
+
+    <input type="text"
+           name="lname"
+           placeholder="Last Name">
+
+    <input type="text"
+           name="phone"
+           placeholder="Phone Number">
+
+    <button type="submit">Search</button>
+</form>
+Remove by VIN: 
+<form method="POST" action="{{ url_for('remove_car') }}">
+    <input type="text"
+           name="vin"
+           placeholder="VIN">
+
+    <button type="submit">Remove Car</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

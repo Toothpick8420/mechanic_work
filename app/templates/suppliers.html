@@ -1,0 +1,28 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Suppliers</h2>
+<a href="/add_supplier">Add a Supplier</a><br><br>
+Search by Store Number:
+<form method="POST" action="{{ url_for('suppliers') }}">
+    <input type="text"
+           name="shop"
+           placeholder="Store Number">
+
+    <button type="submit">Search</button>
+</form>
+<form method="POST" action="{{ url_for('remove_supplier') }}">
+    <input type="text"
+           name="supplier"
+           placeholder="Supplier Number">
+    <button type="submit">Remove</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

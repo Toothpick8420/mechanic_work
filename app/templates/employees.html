@@ -1,0 +1,23 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Employees</h2>
+<a href="/create_account">Create User</a><br><br>
+Enter Employee to Remove:
+<div>
+    <form method="POST" action="{{ url_for('employees') }}">
+        <input type="text"
+               name="userID"
+               placeholder="UserID">
+        <button type="submit">Remove</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

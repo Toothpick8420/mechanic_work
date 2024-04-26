@@ -1,0 +1,28 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Add Customer</h2>    
+Enter Customer Information:
+<form method="POST" action="{{ url_for('add_customer') }}">
+    <input class="inp" type="text"
+           name="fname"
+           placeholder="First Name"><br>
+
+    <input class="inp" type="text"
+           name="lname"
+           placeholder="Last Name"><br>
+
+    <input class="inp" type="text"
+           name="phone"
+           placeholder="Phone Number"><br>
+
+    <button class="button" type="submit">Submit</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+{% endblock %}

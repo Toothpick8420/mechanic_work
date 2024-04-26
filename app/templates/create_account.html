@@ -1,0 +1,48 @@
+<body>
+<link rel="stylesheet" href='/static/style.css'/>
+<h1>Create An Account</h1>             
+
+<form method="POST" action="{{ url_for('create_account') }}">
+    <input class="inp" type="text"
+           name="fname"
+           placeholder="First Name"><br>
+    
+    <input class="inp" type="text"
+           name="lname"
+           placeholder="Last Name"><br>
+
+    <input class="inp" type="text"
+           name="userID"
+           placeholder="UserID"><br>
+
+    <input class="inp" type="text"
+           name="email"
+           placeholder="Email"><br>
+
+    <input class="inp" type="password"
+           name="password"
+           placeholder="Password"><br>
+
+    <input class="inp" type="text"
+           name="storenum"
+           placeholder="Store Number"><br>
+
+    <button class="button" type="submit">Submit</button>
+</form>
+<p>
+    Password Requirements: <br>
+    Length between 10 and 25 <br>
+    Must contain a special character <br>
+    Must contain a number <br>
+    Must contain a lowercase letter <br>
+    Must contain an uppercase letter <br>
+</p>
+<a href="/login">Or back to the Login Page</a>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+</body>

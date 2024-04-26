@@ -1,0 +1,42 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Add Repair</h2>
+<div>
+    <form method="POST" action="{{ url_for('add_repair') }}">
+        <input class="inp" type="text"
+               name="userID"
+               placeholder="Technician ID"><br>
+
+        <input class="inp" type="text"
+               name="vin"
+               placeholder="VIN"><br>
+
+        <input class="inp" type="text"
+               name="in_miles"
+               placeholder="In Miles"><br>
+        
+       <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+
+<h2>Add Task</h2>
+<form method="POST" action="{{ url_for('add_task') }}">
+    <input class="inp" type="text"
+           name="repairNum"
+           placeholder="Repair Number"><br>
+
+    <textarea class="inp" name="descr" cols="40" rows="5"></textarea>
+ 
+   <button class="button" type="submit">Submit</button>
+</form> 
+
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Invoices</h2>
+<a href="/add_invoice">Or Add an Invoice</a><br><br>
+Search by Customer
+<form method="POST" action="{{ url_for('invoices') }}">
+    <input type="text"
+           name="fname"
+           placeholder="First Name">
+
+    <input type="text"
+           name="lname"
+           placeholder="Last Name">
+
+    <input type="text"
+           name="phone"
+           placeholder="Phone Number">
+
+    <button type="submit">Search</button>
+</form>
+Set Invoice Paid:
+<form method="POST" action="{{ url_for('invoice_paid') }}"  >
+    <input type="text"
+           name="invoice"
+           placeholder="Invoice Number">
+
+    <button type="submit">Paid</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

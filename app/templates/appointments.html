@@ -1,0 +1,23 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Appointments</h2>
+<a href="/add_appointment">Add an Appointment</a><br><br>
+
+Remove Appointment:
+<form method="POST" actions="{{ url_for('appointments') }}">
+    <input type="text"
+           name="appnum"
+           placeholder="Appointment Number">
+
+    <button type="submit">Remove</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

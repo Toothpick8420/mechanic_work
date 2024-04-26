@@ -1,0 +1,37 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Add Car</h2>
+<div>
+    <form method="POST" action="{{ url_for('add_car') }}">
+        <input class="inp" type="text"
+               name="vin"
+               placeholder="VIN"><br>
+
+        <input class="inp" type="text"
+               name="make"
+               placeholder="Make"><br>
+
+        <input class="inp" type="text"
+               name="model"
+               placeholder="model"><br>
+
+        <input class="inp" type="text"
+               name="year"
+               placeholder="year"><br>
+
+        <input class="inp" type="text"
+               name="custid"
+               placeholder="CustID"><br>
+
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+{% endblock %}

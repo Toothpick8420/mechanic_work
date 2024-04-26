@@ -1,0 +1,35 @@
+body {
+    background-color: lightblue;
+}
+
+#links {
+    border-style: solid;
+    width: 125px;
+    padding: 5px;
+}
+
+.title {
+    text-align: center;
+    margin: auto;
+}
+
+.login {
+    border-style: solid;
+    width: 400px;
+    padding: 10px;
+    margin: auto;
+}
+
+.inp {
+    margin: 2px;
+}
+
+.button {
+    margin-top: 3px;
+}
+
+
+.error {
+    color: red;
+    text-align: center;
+}

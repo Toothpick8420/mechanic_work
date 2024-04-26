@@ -1,0 +1,54 @@
+{% extends "homepage.html" %}
+
+{% block body %}
+<h2>Repairs</h2>
+<a href="/add_repair">Or Add a Repair</a><br><br>
+Search by Customer Information or VIN:
+<form method="POST" action="{{ url_for('repairs') }}">
+    <input type="text"
+           name="fname"
+           placeholder="First Name">
+
+    <input type="text"
+           name="lname"
+           placeholder="Last Name">
+
+    <input type="text"
+           name="phone"
+           placeholder="Phone Number">
+
+    <input type="text"
+           name="vin"
+           placeholder="VIN">
+
+    <button type="submit">Search</button>
+</form>
+Update Out Miles:
+<form method="POST" action="{{ url_for('update_repair') }}">
+    <input type="text"
+           name="repairNum"
+           placeholder="Repair Number">
+
+    <input type="text"
+           name="out_miles"
+           placeholder="Out Miles">
+
+    <button type="submit">Update</button>
+</form>
+Get Tasks For a Repair:
+<form method="POST" action="{{ url_for('get_tasks') }}">
+    <input type="text"
+           name="repairNum"
+           placeholder="Repair Number">
+
+    <button type="submit">Tasks</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}

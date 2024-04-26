@@ -1,0 +1,37 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Add Invoice</h2>
+<div>
+    <form method="POST" action="{{ url_for('add_invoice') }}">
+        <input class="inp" type="text"
+               name="userID"
+               placeholder="Technician ID"><br>
+
+        <input class="inp" type="text"
+               name="custID"
+               placeholder="Customers ID"><br>
+
+        <input class="inp" type="text"
+               name="vin"
+               placeholder="VIN"><br>
+
+        <input class="inp" type="text"
+               name="repairNum"
+               placeholder="Repair Number"><br>
+
+        <input class="inp" type="text"
+               name="cost"
+               placeholder="Total Cost"><br>
+
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+{% endblock %}

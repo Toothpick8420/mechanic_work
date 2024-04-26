@@ -1,0 +1,34 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<h2>Add Appointment</h2>
+<a href="/customers">Search for Customer</a><br>
+<div>
+    <form method="POST" action="{{ url_for('add_appointment') }}">
+        <input class="inp" type="text"
+               name="shop"
+               placeholder="Store Number"><br>
+
+        <input class="inp" type="text"
+               name="custID"
+               placeholder="CustID"><br>
+
+        <input class="inp" type="date"
+               name="date"><br>
+    
+        <input class="inp" type="text"
+               name="vin"
+               placeholder="VIN"><br>
+
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h3 class="error">{{ messages }}</h3> 
+    {% endif %}
+{% endwith%}
+
+
+{% endblock %}
